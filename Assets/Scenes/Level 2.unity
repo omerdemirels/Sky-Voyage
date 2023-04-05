@@ -584,29 +584,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 689058015, guid: 52013d168f5875e408877991f56ba73e, type: 3}
-      propertyPath: baloonSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ad27d90360416ea45964e36efe41161f, type: 3}
-    - target: {fileID: 738216231, guid: 52013d168f5875e408877991f56ba73e, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 738216238, guid: 52013d168f5875e408877991f56ba73e, type: 3}
-      propertyPath: winSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 58302e448df066c45843a3050c1d4237, type: 3}
-    - target: {fileID: 738216238, guid: 52013d168f5875e408877991f56ba73e, type: 3}
-      propertyPath: crashSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ed4d7963642caae4e94ea7fc73412065, type: 3}
     - target: {fileID: 3395790492115842724, guid: 52013d168f5875e408877991f56ba73e, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3395790492115842724, guid: 52013d168f5875e408877991f56ba73e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -6.77
       objectReference: {fileID: 0}
     - target: {fileID: 3395790492115842724, guid: 52013d168f5875e408877991f56ba73e, type: 3}
       propertyPath: m_LocalPosition.y

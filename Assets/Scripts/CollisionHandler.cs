@@ -10,14 +10,21 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] private float levelLoadDelay = 1f;
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip winSound;
+    [SerializeField] ParticleSystem crashParticle;
+    [SerializeField] ParticleSystem winParticle;
 
     AudioSource audioSource;
+    bool isTransitioning = false;
      void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
     void OnCollisionEnter(Collision other)
     {
+        if (isTransitioning)
+        {
+            return;
+        }
         switch (other.gameObject.tag)
         {
             case "BasePoint":
@@ -38,14 +45,18 @@ public class CollisionHandler : MonoBehaviour
 
     void StartSuccessSequence()
     {
-        //add particle effect
+        winParticle.Play();
+        isTransitioning = true; 
+        audioSource.Stop();
         audioSource.PlayOneShot(winSound);
         GetComponent<Movements>().enabled = false;
         Invoke("NextLevelScene", levelLoadDelay);
     }
     void StartCrashSequence()
     {
-        //add particle effect
+        crashParticle.Play();
+        isTransitioning = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(crashSound);
         GetComponent<Movements>().enabled = false;
         Invoke("ReloadScene", levelLoadDelay);
