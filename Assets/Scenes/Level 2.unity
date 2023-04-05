@@ -217,26 +217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &738216230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8239651295737542596, guid: 52013d168f5875e408877991f56ba73e, type: 3}
-  m_PrefabInstance: {fileID: 4751729245516491275}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &738216238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738216230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406c8bcb243486c4582574f4a8059eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelLoadDelay: 1
-  crashSound: {fileID: 8300000, guid: ed4d7963642caae4e94ea7fc73412065, type: 3}
-  winSound: {fileID: 8300000, guid: 58302e448df066c45843a3050c1d4237, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708452858401825316, guid: f1ac52768cc06314e90131691e0f02b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2708452858401825316, guid: f1ac52768cc06314e90131691e0f02b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -591,6 +571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4394497794814320207, guid: f1ac52768cc06314e90131691e0f02b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e20f8ed533341d4bae1bd721417a51a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1ac52768cc06314e90131691e0f02b5, type: 3}
 --- !u!1001 &4751729245516491275
@@ -608,10 +592,14 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 738216231, guid: 52013d168f5875e408877991f56ba73e, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 738216238, guid: 52013d168f5875e408877991f56ba73e, type: 3}
+      propertyPath: winSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 58302e448df066c45843a3050c1d4237, type: 3}
+    - target: {fileID: 738216238, guid: 52013d168f5875e408877991f56ba73e, type: 3}
+      propertyPath: crashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ed4d7963642caae4e94ea7fc73412065, type: 3}
     - target: {fileID: 3395790492115842724, guid: 52013d168f5875e408877991f56ba73e, type: 3}
       propertyPath: m_RootOrder
       value: 5
