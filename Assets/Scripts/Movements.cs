@@ -10,6 +10,8 @@ public class Movements : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
 
+    [SerializeField] ParticleSystem windParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,17 +29,31 @@ public class Movements : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * mainThrust* Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(baloonSound);
-            }
+            StartThrusting();
+
         }
         else
         {
-            audioSource.Stop();
+            StopThrusting();
         }
-        
+
+    }
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(baloonSound);
+        }
+        if (!windParticle.isPlaying)
+        {
+            windParticle.Play();
+        }
+    }
+    void StopThrusting()
+    {
+        audioSource.Stop();
+        windParticle.Stop();
     }
     void ProcessRotation()
     {
@@ -50,7 +66,7 @@ public class Movements : MonoBehaviour
             ApplyRotation(-rotationForce);
         }
     }
-
+   
     public void ApplyRotation(float rotationSide)
     {
         rb.freezeRotation = true;

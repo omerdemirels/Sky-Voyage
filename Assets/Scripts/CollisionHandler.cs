@@ -15,13 +15,31 @@ public class CollisionHandler : MonoBehaviour
 
     AudioSource audioSource;
     bool isTransitioning = false;
+    bool isCollisionDisabled = false;
      void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
+     void Update()
+    {
+        RespondtoDebugKeys();
+    }
+
+     void RespondtoDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            isCollisionDisabled = !isCollisionDisabled;
+        }
+    }
+
     void OnCollisionEnter(Collision other)
     {
-        if (isTransitioning)
+        if (isTransitioning || isCollisionDisabled)
         {
             return;
         }
@@ -50,7 +68,7 @@ public class CollisionHandler : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(winSound);
         GetComponent<Movements>().enabled = false;
-        Invoke("NextLevelScene", levelLoadDelay);
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
     void StartCrashSequence()
     {
@@ -61,7 +79,7 @@ public class CollisionHandler : MonoBehaviour
         GetComponent<Movements>().enabled = false;
         Invoke("ReloadScene", levelLoadDelay);
     }
-    void NextLevelScene()
+    void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
